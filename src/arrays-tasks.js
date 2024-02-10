@@ -137,7 +137,6 @@ function getAverage(arr) {
   }
   return 0;
 }
-// throw new Error('Not implemented');
 
 /**
  * Checks if all strings in an array have the same length.
@@ -149,8 +148,9 @@ function getAverage(arr) {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength(/* arr */) {
-  throw new Error('Not implemented');
+function isSameLength(arr) {
+  const { length } = arr[0];
+  return arr.every((str) => str.length === length);
 }
 
 /**
