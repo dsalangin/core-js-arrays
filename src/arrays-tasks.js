@@ -127,9 +127,17 @@ function getStringsLength(arr) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  const sumValue = arr.reduce((acc, value) => acc + value, 0);
+  if (sumValue !== 0 && arr.length !== 0) {
+    if ((sumValue / arr.length) % 1 !== 0) {
+      return +(sumValue / arr.length).toFixed(2);
+    }
+    return sumValue / arr.length;
+  }
+  return 0;
 }
+// throw new Error('Not implemented');
 
 /**
  * Checks if all strings in an array have the same length.
