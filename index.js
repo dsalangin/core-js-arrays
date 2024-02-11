@@ -1,21 +1,16 @@
 const { log } = console;
 
-function shiftArray(arr, n) {
-  return arr.reduce((acc, item, i) => {
-    let newIndex = null;
-    if (n > 0) {
-      newIndex = i + n + 1 > arr.length ? i + n - arr.length : i + n;
-    } else {
-      newIndex = i + n < 0 ? i + n + arr.length : i + n;
-      log(newIndex);
-    }
-    acc[newIndex] = item;
-    return acc;
-  }, []);
+function swapHeadAndTail(arr) {
+  if (arr.length < 2) return arr;
+  const half = arr.length / 2;
+  const middle = half % 1 === 0 ? half : Math.floor(half) + 1;
+  const head = arr.filter((_, i) => i < Math.floor(half));
+  const tail = arr.filter((_, i) => i >= middle);
+  return half % 1 !== 0 ? [...tail, middle, ...head] : [...tail, ...head];
 }
 
-const arr = [1, 2, 3, 4, 5];
+const arr = [1, 2, 3, 4];
 
-log(shiftArray(arr, 1));
+log(swapHeadAndTail(arr));
 
 log();
